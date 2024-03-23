@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+ 
+        
+        #d_Top {
+            width: 1280px;
+            height: 80px;
+            border: 1px solid black;
+        }
+        #d_Left{
+            width: 254px;
+            height: 640px;
+            border: 1px solid black;   
+            float: left;
+        }
+        #d_Right{
+            width: 1024px;  height: 640px;
+          float: left;
+            border: 1px solid black;
+        }
+        .student{
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;            
+                                                    
+        }
+        #student_id{
+            color: black;
+            font-size: 20px;
+            font-family: 'Arial';
+        }
+        #student_name{
+            color: black;
+            font-size: 20px;
+            font-family: 'Arial';
+        }
+        .button {
+            display: flex; 
+            flex-direction: column; 
+            align-items: flex-start; 
+            margin: 8px;
+            padding: 8px;
+        }
+        #button1 {
+            margin-bottom: 8px;
+        }
+        #empty{
+            color: black;
+            font-size: 40px;
+            font-family: 'Arial';
+        }
+        .d_Right {
+    display: flex;
+    align-items: flex-start;
+  }
+  .text-list {
+    margin-left: 20px;
+  }
+    </style>
+</head>
+<body>
+    <div id="fullscreen">
+        
+        <div id="d_Top">
+            <div class="student">
+            <div id="student_id">
+            학번:202034015
+            </div>
+            <div id="student_name">
+                이름:배승환
+            </div>
+            </div>
+        </div>
+        </div>
+       
+       
+        <div id="d_Left">
+            <div class="button">
+                <button id="button1">버튼1</button>
+                <button id="button2">버튼2</button>
+                <script>
+                     document.getElementById('button1').addEventListener('click', function() {
+                        const container = document.getElementById('d_Right');
+                        container.innerHTML = ''; 
+  
+  
+                        const canvas = document.createElement('canvas');
+                        canvas.width = container.offsetWidth; 
+                         canvas.height = container.offsetHeight; 
+                         container.appendChild(canvas);
+  
+  
+                        const ctx = canvas.getContext('2d');
+                        const centerX = canvas.width / 2;
+                        const centerY = canvas.height / 2;
+                      const radius = 70; 
+                        
+                     ctx.beginPath();
+                     ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI); 
+                      ctx.fillStyle = 'blue'; 
+                        ctx.fill(); 
+                        });
+
+                        document.getElementById("button2").onclick = function() {
+                        var contentContainer = document.getElementById("d_Right");
+                        contentContainer.innerHTML = ''; 
+
+  
+                        var img = document.createElement('img');
+                        img.src = 'https://i.namu.wiki/i/ymgp13qVQudbYxZ3wnxdPY8L4iwExivK1US6vkkimna7K0Asom2T4xt28Pt29WQkdMUQH6unc6clUj-AHiiX8FRZdL-3IaF33RxAgEGj6zUCYivKLRmaNKI31B3BC7KJANzMn99MvxV_808glfTFVg.webp'; 
+                        img.alt = 'Placeholder Image';
+                        img.width=500;
+                        img.height=300;
+                        contentContainer.appendChild(img);
+
+  
+                        var list = document.createElement('ul');
+                        list.className = 'text-list';
+
+  
+                        var items = ['내가 좋아하는 게임 이름: 레인보우 식스 시즈', '출시년도:2015년 12월 1일', '장르:전술 FPS','좋아하는 이유:타 FPS에 비해 전략전술의 비중이 높아 총든 체스 불리는데 이러한 점 떄문에 기본적인 에임에만 몰두 하는것이 아닌 머리만 잘쓰면 어느정도의 에임이 커버가 된다는 점에서 매력을 느꼈고 앞뒤양옆 4방향 뿐만이 아닌 위아래 수직으로도 사격이 가능해 창의적인 플레이를 할수있고 입문은 어렵지만 그만큼 한번빠지면 다른 FPS로 갈아타기 힘들 정도로 개성이 강하다는 점에서 매력을 느꼈습니다.'];
+                        items.forEach(function(item) {
+                        var li = document.createElement('li');
+                        li.textContent = item;
+                        list.appendChild(li);
+                        });
+
+                        contentContainer.appendChild(list);
+                    };
+                </script>
+
+            </div>
+        </div>
+        <div id="d_Right" class ="d_Right">
+            <div id="empty">
+                빈화면
+            </div>
+        </div>
+    
+</body>
+</html>
